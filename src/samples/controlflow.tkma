@@ -1,0 +1,7 @@
+import std;
+
+pub class Program {
+    pub int Program() {
+        println("hello")
+    }
+}
