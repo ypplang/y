@@ -1,0 +1,19 @@
+import std;
+
+pub class Program {
+    pub Program() {
+        int count = 10
+        int first_term alias firstTerm = 0
+        int second_term alias secondTerm = 1
+
+        println("Fibonacci (first {count} terms):")
+
+        for (var i = 0; i < count; i++) {
+            println("Term {i + 1}: {first_term}")
+
+            int next_term = firstTerm + secondTerm
+            firstTerm = secondTerm
+            secondTerm = next_term
+        }
+    }
+}

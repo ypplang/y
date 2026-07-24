@@ -1,7 +1,25 @@
 import std;
 
 pub class Program {
-    pub int Program() {
-        println("hello")
+    pub Program() {
+        int health = 40
+
+        if (health <= 0) {
+            println("Game over haha")
+        } else if (health < 50) {
+            println("WARNING: LOW HEALTH")
+        } else {
+            println("You feel ok.")
+        }
+
+        int energy = 0
+        while (energy < 3) {
+            println("Charging: {energy}")
+            energy++
+        }
+
+        for (var i = 0; i < 5; i++) {
+            println("Loop index: {i}")
+        }
     }
 }
