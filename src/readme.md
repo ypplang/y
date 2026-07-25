@@ -1,1 +1,1 @@
-Welcome to the `Y lang` source code and examples directory. Here you can view the Zig source code and samples, and try writing a program too with the examples.
+Welcome to the `Y lang` source code and examples directory. Here you can view the source code and samples, and try writing a program too with the examples.
