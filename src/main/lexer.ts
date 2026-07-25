@@ -25,10 +25,13 @@ export class Lexer {
             }
 
             if (/[0-9]/.test(char)) {
-                return { type: 'number', value: char };
+                let numStr = char;
+                while (this.cursor < this.source.length && /[0-9]/.test(this.source[this.cursor])) {
+                    numStr += this.source[this.cursor];
+                    this.cursor++;
+                }
             }
         }
-
         return { type: 'eof', value: '' };
     }
 }          

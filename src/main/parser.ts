@@ -8,6 +8,10 @@ export class Parser {
         const tok1 = this.lexer.nextToken();
         const num1 = parseFloat(tok1.value);
 
+        if (isNaN(num1)) {
+            console.error('y: Error: Expected a number, but got:', tok1.value);
+        }
+        
         const opTok = this.lexer.nextToken();
         if (opTok.type === 'eof') {
             return { kind: 'Number', value: num1 };
