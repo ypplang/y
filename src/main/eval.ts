@@ -6,7 +6,15 @@ export function evaluate(expr: ExprNode): number {
             return expr.value;
         
         case 'Binary': {
-            const left = evaluate(expr.left)
+            const left = evaluate(expr.left);
+            const right = evaluate(expr.right);
+
+            switch (expr.op) {
+                case '+': return left + right;
+                case '-': return left - right;
+                case '*': return left * right;
+                case '/': return left / right;
+            }
         }
     }
 }
