@@ -66,8 +66,9 @@ function run() {
   const parser = new Parser(lexer);
   const ast = parser.parse();
 
-  const result = evaluate(ast);
+  const ast = parser.parse();
   console.log(`Execution Output: ${result}`);
+  const result = evaluate(ast);
 }
 
 run();
