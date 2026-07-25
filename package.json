@@ -1,0 +1,19 @@
+{
+    "name": "the-y-language",
+    "version": "1.0.0",
+    "description": "The interpreter for the Y programming language (.tkma).",
+    "main": "dist/main.main.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "ts-node src/main/main.ts",
+        "run:sample": "ts-node src/main/main.ts src/samples/hello.tkma"
+    },
+    "keywords": ["interpreter", "compiler", "tacoma", "pointdev", "tkma", "y-plus-plus", "y"],
+    "author": "PointDev",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.0.0"
+    }
+}
