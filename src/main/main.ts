@@ -134,16 +134,19 @@ function findLibraryFile(importName: string, sourceFilePath: string): string | n
 
 function loadImportedLibraries(sourceCode: string, sourceFilePath: string): string {
   const importPattern = /^\s*import\s+([A-Za-z_][\w.]*)\s*;\s*$/gm;
+  let result = sourceCode;
 
-  return sourceCode.replace(importPattern, (match, importName: string) => {
+  result = result.replace(importPattern, (match, importName: string) => {
     const libraryPath = findLibraryFile(importName, sourceFilePath);
     if (!libraryPath) {
       return match;
     }
 
     const librarySource = fs.readFileSync(libraryPath, 'utf-8');
-    return `${stripComments(librarySource).trim()}\n`;
+    return `\n${stripComments(librarySource).trim()}\n`;
   });
+
+  return result.trim();
 }
 
 export function preprocessSource(sourceCode: string, sourceFilePath: string, targetClass?: string): string {
@@ -198,8 +201,14 @@ function run() {
   try {
     const ast = parser.parse();
     const result = evaluate(ast);
-    console.log(`Execution Output: ${result}`);
-  } catch {
+
+    if (typeof result === 'number') {
+      console.log(`Execution Output: ${result}`);
+    } else if (result !== '') {
+      console.log(result);
+    }
+  } catch (error) {
+    console.error(`Execution Error: ${error instanceof Error ? error.message : error}`);
     console.log('Execution Output: 0');
   }
 }

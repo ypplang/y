@@ -150,14 +150,16 @@ function findLibraryFile(importName, sourceFilePath) {
 }
 function loadImportedLibraries(sourceCode, sourceFilePath) {
     const importPattern = /^\s*import\s+([A-Za-z_][\w.]*)\s*;\s*$/gm;
-    return sourceCode.replace(importPattern, (match, importName) => {
+    let result = sourceCode;
+    result = result.replace(importPattern, (match, importName) => {
         const libraryPath = findLibraryFile(importName, sourceFilePath);
         if (!libraryPath) {
             return match;
         }
         const librarySource = fs.readFileSync(libraryPath, 'utf-8');
-        return `${stripComments(librarySource).trim()}\n`;
+        return `\n${stripComments(librarySource).trim()}\n`;
     });
+    return result.trim();
 }
 function preprocessSource(sourceCode, sourceFilePath, targetClass) {
     const withoutComments = stripComments(sourceCode);
@@ -202,9 +204,15 @@ function run() {
     try {
         const ast = parser.parse();
         const result = (0, evaluator_1.evaluate)(ast);
-        console.log(`Execution Output: ${result}`);
+        if (typeof result === 'number') {
+            console.log(`Execution Output: ${result}`);
+        }
+        else if (result !== '') {
+            console.log(result);
+        }
     }
-    catch {
+    catch (error) {
+        console.error(`Execution Error: ${error instanceof Error ? error.message : error}`);
         console.log('Execution Output: 0');
     }
 }
