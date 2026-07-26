@@ -1,0 +1,8 @@
+// std/std.tkma
+// The standard Y/Y++ library.
+
+pub class Std {
+    pub static fn info() {
+        println("Y++ standard library v1.0")
+    }
+}
