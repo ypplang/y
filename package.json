@@ -1,18 +1,50 @@
 {
-    "name": "the-y-language",
-    "version": "1.0.0",
-    "description": "The interpreter for the Y programming language (.tkma).",
-    "main": "dist/main.main.js",
-    "scripts": {
-        "build": "tsc",
-        "start": "ts-node src/main/main.ts",
-        "run:sample": "ts-node src/main/main.ts src/samples/hello.tkma"
+    "name": "y-language-vscode-extension",
+    "displayName": "Y Language",
+    "version": "0.0.1",
+    "publisher": "PointDev",
+    "description": "A VS Code extension for running Y/TKMA programs from the editor.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ypplang/y.git"
     },
-    "keywords": ["interpreter", "compiler", "tacoma", "pointdev", "tkma", "y-plus-plus", "y"],
+    "main": "./dist/extension.js",
+    "engines": {
+        "vscode": "^1.95.0"
+    },
+    "activationEvents": [
+        "onCommand:y.runTkmaFile"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "y.runTkmaFile",
+                "title": "Run TKMA File"
+            }
+        ]
+    },
+    "scripts": {
+        "build": "tsc -p ./tsconfig.json",
+        "start": "ts-node src/main/main.ts",
+        "run:sample": "ts-node src/main/main.ts src/samples/hello.tkma",
+        "vscode:prepublish": "npm run build"
+    },
+    "keywords": [
+        "interpreter",
+        "compiler",
+        "tacoma",
+        "pointdev",
+        "tkma",
+        "y-plus-plus",
+        "y",
+        "vscode-extension"
+    ],
     "author": "PointDev",
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^20.0.0",
+        "@types/vscode": "^1.95.0",
+        "@vscode/vsce": "^3.9.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.0.0"
     }
