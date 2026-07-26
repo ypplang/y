@@ -1,6 +1,6 @@
 {
     "name": "y-language",
-    "displayName": "Y Language",
+    "displayName": "Y Language VS Code",
     "version": "0.0.1",
     "publisher": "PointDev",
     "description": "A VS Code extension for running Y/TKMA programs from the editor.",

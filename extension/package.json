@@ -1,0 +1,57 @@
+{
+  "name": "y-language",
+  "displayName": "Y Language VS Code",
+  "version": "0.0.2",
+  "publisher": "PointDev",
+  "description": "Y language support for VS Code with syntax highlighting and TKMA execution.",
+  "icon": "./ylogos/IMG_1409.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ypplang/y.git"
+  },
+  "main": "./dist/extension.js",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:y.runTkmaFile",
+    "onLanguage:tkma"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "tkma",
+        "aliases": ["TKMA", "tkma"],
+        "extensions": [".tkma", ".ultragayboytkmalmaoylangisthebestlangbetterthancpp", ".y"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tkma",
+        "scopeName": "source.tkma",
+        "path": "./syntaxes/tkma.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "y.runTkmaFile",
+        "title": "Run TKMA File"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "vscode:prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.95.0",
+    "@vscode/vsce": "^3.9.2",
+    "typescript": "^5.0.0"
+  }
+}
