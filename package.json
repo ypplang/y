@@ -2,6 +2,10 @@
     "name": "y-language",
     "displayName": "Y Language VS Code",
     "version": "0.0.1",
+    "bin": {   
+        "y": "./dist/main/main.js",
+        "y++": "./dist/main/main.js"
+    },
     "publisher": "PointDev",
     "description": "A VS Code extension for running Y/TKMA programs from the editor.",
     "icon": "ylogos/IMG_1409.png",
