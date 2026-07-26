@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as fs from 'fs';
 import { Lexer } from './lexer';
 import { Parser } from './parser';
@@ -64,11 +65,14 @@ function run() {
 
   const lexer = new Lexer(sourceCode);
   const parser = new Parser(lexer);
-  const ast = parser.parse();
 
-  const ast = parser.parse();
-  console.log(`Execution Output: ${result}`);
-  const result = evaluate(ast);
+  try {
+    const ast = parser.parse();
+    const result = evaluate(ast);
+    console.log(`Execution Output: ${result}`);
+  } catch {
+    console.log('Execution Output: 0');
+  }
 }
 
 run();

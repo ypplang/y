@@ -13,15 +13,15 @@ export class Lexer {
     public nextToken(): Token {
         while (this.cursor < this.source.length) {
             const char = this.source[this.cursor];
-            this.cursor++
+            this.cursor++;
 
             if (/\s/.test(char)) continue;
 
             switch (char) {
-                case '+': return { type: 'plus', value: '+' }
-                case '-': return { type: 'minus', value: '-' }
-                case '*': return { type: 'star', value: '*' }
-                case '/': return { type: 'slash', value: '/' }
+                case '+': return { type: 'plus', value: '+' };
+                case '-': return { type: 'minus', value: '-' };
+                case '*': return { type: 'star', value: '*' };
+                case '/': return { type: 'slash', value: '/' };
             }
 
             if (/[0-9]/.test(char)) {
@@ -30,6 +30,7 @@ export class Lexer {
                     numStr += this.source[this.cursor];
                     this.cursor++;
                 }
+                return { type: 'number', value: numStr };
             }
         }
         return { type: 'eof', value: '' };
