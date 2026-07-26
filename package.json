@@ -4,6 +4,7 @@
     "version": "0.0.1",
     "publisher": "PointDev",
     "description": "A VS Code extension for running Y/TKMA programs from the editor.",
+    "icon": "ylogos/IMG_1409.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/ypplang/y.git"
