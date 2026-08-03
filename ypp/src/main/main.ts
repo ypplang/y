@@ -171,14 +171,14 @@ pub class ${entryName} {
   if (targetClass) {
     const expectedDeclaration = `class ${targetClass}`;
     if (!withResolvedImports.includes(expectedDeclaration)) {
-      console.error(`y: Error: Expected class '${targetClass}' in file, but it was not found.`);
+      console.error(`ypp: Error: Expected class '${targetClass}' in file, but it was not found.`);
       process.exit(1);
     }
     return withResolvedImports;
   }
 
   if (!withResolvedImports.includes('class Program')) {
-    console.error("y: Error: Missing 'pub class Program'. Use '--class <Name>' or add '@noprogram;'.");
+    console.error("ypp: Error: Missing 'pub class Program'. Use '--class <Name>' or add '@noprogram;'.");
     process.exit(1);
   }
 
@@ -189,7 +189,7 @@ function run() {
   const { filePath, className } = parseArgs(process.argv.slice(2));
 
   if (!filePath) {
-    console.error('y: Error: Please specify a .tkma source file to run.');
+    console.error('ypp: Error: Please specify a .tkma source file to run.');
     process.exit(1);
   }
 
