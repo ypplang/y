@@ -1,0 +1,1 @@
+This directory holds the original programming language. Y++ source code is placed in "ypp/"
