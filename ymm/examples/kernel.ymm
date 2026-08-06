@@ -1,0 +1,6 @@
+struct Controller @align(16) {
+}
+
+func main @abi("cdecl") {
+    var @reg("rax") status_reg
+}

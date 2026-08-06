@@ -1,0 +1,11 @@
+func fast_add() -> int32 @abi("fastcall") {
+    var @reg("rax") result
+    var @reg("rbx") input_a
+    var @reg("rcx") input_b
+
+    input_a = 42
+    input_b = 58
+
+    result = input_a + input_b
+    return result
+}

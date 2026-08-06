@@ -1,0 +1,12 @@
+struct UART_Controller @align(16) {
+    var uint32 TX_DATA   @offset(0x00)
+    var uint32 RX_DATA   @offset(0x04)
+    var uint32 STATUS    @offset(0x08)
+    var uint32 CONTROL   @offset(0x0C)
+}
+
+func init_uart() -> void {
+    var ptr base_addr = cast(ptr, 0x40003000)
+    
+    base_addr.STATUS = 0x01
+}
