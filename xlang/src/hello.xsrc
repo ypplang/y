@@ -1,0 +1,7 @@
+use System;
+
+class Program {
+    void main() {
+        println("Hello world");
+    }
+}
