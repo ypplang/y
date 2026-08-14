@@ -1,0 +1,23 @@
+{
+  "name": "yscript",
+  "version": "1.0.0",
+  "description": "YScript compiler and JIT engine",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/main/index.js",
+    "dev": "ts-node src/main/index.ts"
+  },
+  "keywords": [
+    "yscript",
+    "compiler",
+    "jit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
+  }
+}

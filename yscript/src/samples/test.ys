@@ -1,0 +1,18 @@
+import example;
+
+Integer counter = 1;
+
+function GreetUser(String name) {
+    Terminal.println("Hello, {name}");
+}
+
+GreetUser("Larper");
+
+while (counter <= 3) {
+    Terminal.println("Loop iteration: {counter}");
+    counter = counter + 1;
+}
+
+if (counter > 3) {
+    Terminal.println("Execution finished");
+}
